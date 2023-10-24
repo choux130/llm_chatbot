@@ -12,7 +12,7 @@
 
 	"settings": {},
 
-	"extensions": ["ms-python.python"], 
+	"extensions": ["ms-python.python", "ms-toolsai.jupyter"], 
 
 	"postCreateCommand": "streamlit run /workspace/code/main.py"
 }

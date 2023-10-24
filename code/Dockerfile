@@ -15,7 +15,7 @@ RUN python -m pip install streamlit==1.27.2
 
 RUN python -m pip install python-dotenv PyPDF2 streamlit langchain openai tiktoken faiss-cpu
 
-RUN python -m pip install pypdf
+RUN python -m pip install pypdf boto3
 
 
 # set up env var

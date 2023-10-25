@@ -46,17 +46,18 @@ def main():
             st.markdown(prompt)
 
         with st.chat_message("assistant"):
-            message_placeholder = st.empty()
-            
-            knowledgeBase = GetKnowledgeBase(text)
+            with st.spinner("Thinking..."):
+                message_placeholder = st.empty()
+                
+                knowledgeBase = GetKnowledgeBase(text)
 
-            docs = knowledgeBase.similarity_search(prompt)
-            llm = OpenAI(streaming = True)
-            chain = load_qa_chain(llm, chain_type='stuff')
-            with get_openai_callback() as cost:
-                response = chain.run(input_documents=docs, question=prompt)
-                print(cost)
-            
+                docs = knowledgeBase.similarity_search(prompt)
+                llm = OpenAI(streaming = True)
+                chain = load_qa_chain(llm, chain_type='stuff')
+                with get_openai_callback() as cost:
+                    response = chain.run(input_documents=docs, question=prompt)
+                    print(cost)
+                
             message_placeholder.markdown(response)
 
         st.session_state.messages.append({"role": "assistant", "content": response})

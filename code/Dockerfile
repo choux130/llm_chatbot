@@ -27,7 +27,7 @@ FROM base as final-islocaldevelopment-false
 # create a user
 RUN useradd -ms /bin/bash pred
 WORKDIR /home/pred
-COPY . .
+COPY ./code .
 
 # change owner of a given directory
 RUN chown -R pred:pred /home/pred 

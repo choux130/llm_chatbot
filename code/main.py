@@ -21,6 +21,8 @@ def main():
     st.sidebar.title('Talk to  your PDF')
     pdf_file = st.sidebar.file_uploader('Upload your PDF Document', type='pdf')
 
+    tab1, tab2 = st.tabs(["Chatbot", "Extracted Text with PII masked"])
+
     if pdf_file is not None:
         try:
             text = ReadPDF(pdf_file)
@@ -28,8 +30,8 @@ def main():
             
             masked_text = MaskStringWithAWSComprehend(text)
             # st.sidebar.text_area('The following are the text read from the uploaded pdf:', masked_text, height=200)
-            st.sidebar.subheader('Text read from the uploaded pdf with PII redaction flagged with this format, **[raw_string --> entity_name]**:')
-            st.sidebar.write([masked_text])
+            tab2.subheader('Text read from the uploaded pdf with PII redaction flagged with this format, **[raw_string --> entity_name]**:')
+            tab2.write([masked_text])
 
         except FileNotFoundError:
             st.error(f"File not found: {pdf_file}")

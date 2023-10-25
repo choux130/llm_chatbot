@@ -1,8 +1,9 @@
 version: '3.7'
 services:
-  mystreamlit:
+  llm_chatbot:
     build:
-      context: ./code
+      context: .
+      dockerfile: ./code/Dockerfile
       target: final-islocaldevelopment-true
 
     volumes:

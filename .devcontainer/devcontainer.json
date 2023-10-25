@@ -6,7 +6,7 @@
 		"docker-compose-dev-in-container.yml"
 	],
 
-	"service": "mystreamlit",
+	"service": "llm_chatbot",
 
 	"workspaceFolder": "/workspace",
 

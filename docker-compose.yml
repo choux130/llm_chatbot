@@ -2,7 +2,8 @@ version: '3.7'
 services:
   llm_chatbot:
     build:
-      context: ./code
+      context: .
+      dockerfile: ./code/Dockerfile
       target: final-islocaldevelopment-false
 
     ports:
